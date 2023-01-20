@@ -13,14 +13,14 @@
 						<th class="text-center">#</th>
 						<th>Name</th>
 						<th>Email</th>
-						<th>Role</th>
+						<!-- <th>Role</th> -->
 						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
 					$i = 1;
-					$type = array('',"Adviser","Student");
+					$type = array('',"Super Admin","User","Super Admin");
 					$qry = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users order by concat(firstname,' ',lastname) asc");
 					while($row= $qry->fetch_assoc()):
 					?>
@@ -28,7 +28,6 @@
 						<th class="text-center"><?php echo $i++ ?></th>
 						<td><b><?php echo ucwords($row['name']) ?></b></td>
 						<td><b><?php echo $row['email'] ?></b></td>
-						<td><b><?php echo $type[$row['type']] ?></b></td>
 						<td class="text-center">
 							<button type="button" class="btn btn-default btn-sm btn-flat border-info wave-effect text-info dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 		                      Action

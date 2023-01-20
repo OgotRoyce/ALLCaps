@@ -45,7 +45,7 @@ Class Action {
 			}
 				return 1;
 		}else{
-			return 3;
+			return `3`;
 		}
 	}
 	function save_user(){

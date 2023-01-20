@@ -2,7 +2,7 @@
 <div class="col-lg-12">
 	<div class="card card-outline card-success">
 		<div class="card-header">
-            <?php if($_SESSION['login_type'] != 3): ?>
+            <?php if($_SESSION['login_type'] != 4): ?>
 			<div class="card-tools">
 				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_project"><i class="fa fa-plus"></i> Add New project</a>
 			</div>
@@ -35,7 +35,7 @@
 					$where = "";
 					if($_SESSION['login_type'] == 2){
 						$where = " where manager_id = '{$_SESSION['login_id']}' ";
-					}elseif($_SESSION['login_type'] == 3){
+					}elseif($_SESSION['login_type'] == 4){
 						$where = " where concat('[',REPLACE(user_ids,',','],['),']') LIKE '%[{$_SESSION['login_id']}]%' ";
 					}
 					$qry = $conn->query("SELECT * FROM project_list $where order by name asc");
@@ -91,7 +91,7 @@
 		                    <div class="dropdown-menu" style="">
 		                      <a class="dropdown-item view_project" href="./index.php?page=view_project&id=<?php echo $row['id'] ?>" data-id="<?php echo $row['id'] ?>">View</a>
 		                      <div class="dropdown-divider"></div>
-		                      <?php if($_SESSION['login_type'] != 3): ?>
+		                      <?php if($_SESSION['login_type'] != 4): ?>
 		                      <a class="dropdown-item" href="./index.php?page=edit_project&id=<?php echo $row['id'] ?>">Edit</a>
 		                      <div class="dropdown-divider"></div>
 		                      <a class="dropdown-item delete_project" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>

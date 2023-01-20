@@ -18,13 +18,13 @@ if($_SESSION['login_type'] != 1)
     $where = "";
     if($_SESSION['login_type'] == 2){
       $where = " where manager_id = '{$_SESSION['login_id']}' ";
-    }elseif($_SESSION['login_type'] == 3){
+    }elseif($_SESSION['login_type'] == 4){
       $where = " where concat('[',REPLACE(user_ids,',','],['),']') LIKE '%[{$_SESSION['login_id']}]%' ";
     }
      $where2 = "";
     if($_SESSION['login_type'] == 2){
       $where2 = " where p.manager_id = '{$_SESSION['login_id']}' ";
-    }elseif($_SESSION['login_type'] == 3){
+    }elseif($_SESSION['login_type'] == 4){
       $where2 = " where concat('[',REPLACE(p.user_ids,',','],['),']') LIKE '%[{$_SESSION['login_id']}]%' ";
     }
     ?>
@@ -59,7 +59,7 @@ if($_SESSION['login_type'] != 1)
                 $where = "";
                 if($_SESSION['login_type'] == 2){
                   $where = " where manager_id = '{$_SESSION['login_id']}' ";
-                }elseif($_SESSION['login_type'] == 3){
+                }elseif($_SESSION['login_type'] == 4){
                   $where = " where concat('[',REPLACE(user_ids,',','],['),']') LIKE '%[{$_SESSION['login_id']}]%' ";
                 }
                 $qry = $conn->query("SELECT * FROM project_list $where order by name asc");

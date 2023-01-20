@@ -3,8 +3,12 @@
    	<a href="./" class="brand-link">
         <?php if($_SESSION['login_type'] == 1): ?>
         <h3 class="text-center p-0 m-0"><b>ADMIN</b></h3>
-        <?php else: ?>
+        <?php endif; ?>
+        <?php if($_SESSION['login_type'] == 2): ?>
         <h3 class="text-center p-0 m-0"><b>USER</b></h3>
+        <?php endif; ?>
+        <?php if($_SESSION['login_type'] == 3): ?>
+        <h3 class="text-center p-0 m-0"><b>SUPER ADMIN</b></h3>
         <?php endif; ?>
 
     </a>
@@ -30,7 +34,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            <?php if($_SESSION['login_type'] != 3): ?>
+            <?php if($_SESSION['login_type'] != 4): ?>
               <li class="nav-item">
                 <a href="./index.php?page=new_project" class="nav-link nav-new_project tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
@@ -52,7 +56,7 @@
                   <p>Task</p>
                 </a>
           </li>
-          <?php if($_SESSION['login_type'] != 3): ?>
+          <?php if($_SESSION['login_type'] != 4): ?>
            <li class="nav-item">
                 <a href="./index.php?page=reports" class="nav-link nav-reports">
                   <i class="fas fa-th-list nav-icon"></i>
@@ -60,7 +64,27 @@
                 </a>
           </li>
           <?php endif; ?>
+
+          <!-- <?php if($_SESSION['login_type'] == 3): ?>
+           <li class="nav-item">
+                <a href="./index.php?page=advisers" class="nav-link nav-advisers">
+                  <i class="fas fa-address-book nav-icon"></i>
+                  <p>Advisers</p>
+                </a>
+          </li>
+          <?php endif; ?>  -->
+
           <?php if($_SESSION['login_type'] == 1): ?>
+           <li class="nav-item">
+                <a href="./index.php?page=student_projects" class="nav-link nav-student_projects">
+                  <i class="fas fa-folder nav-icon"></i>
+                  <p>Student Projects</p>
+                </a>
+          </li>
+          <?php endif; ?>
+
+
+          <?php if($_SESSION['login_type'] == 1 || $_SESSION['login_type'] == 3): ?>
           <li class="nav-item">
             <a href="#" class="nav-link nav-edit_user">
               <i class="nav-icon fas fa-users"></i>

@@ -65,7 +65,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 								</dd>
 							</dl>
 							<dl>
-								<dt><b class="border-bottom border-primary">Project Manager</b></dt>
+								<dt><b class="border-bottom border-primary">Project Adviser</b></dt>
 								<dd>
 									<?php if(isset($manager['id'])) : ?>
 									<div class="d-flex align-items-center mt-1">
@@ -116,7 +116,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 			<div class="card card-outline card-primary">
 				<div class="card-header">
 					<span><b>Task List:</b></span>
-					<?php if($_SESSION['login_type'] != 3): ?>
+					<?php if($_SESSION['login_type'] != 4): ?>
 					<div class="card-tools">
 						<button class="btn btn-primary bg-gradient-primary btn-sm" type="button" id="new_task"><i class="fa fa-plus"></i> New Task</button>
 					</div>
@@ -171,7 +171,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 					                    <div class="dropdown-menu" style="">
 					                      <a class="dropdown-item view_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"  data-task="<?php echo $row['task'] ?>">View</a>
 					                      <div class="dropdown-divider"></div>
-					                      <?php if($_SESSION['login_type'] != 3): ?>
+					                      <?php if($_SESSION['login_type'] != 4): ?>
 					                      <a class="dropdown-item edit_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"  data-task="<?php echo $row['task'] ?>">Edit</a>
 					                      <div class="dropdown-divider"></div>
 					                      <a class="dropdown-item delete_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
