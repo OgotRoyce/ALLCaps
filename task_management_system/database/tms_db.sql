@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2023 at 12:13 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: Mar 24, 2023 at 07:10 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,7 @@ CREATE TABLE `project_list` (
   `manager_id` int(30) NOT NULL,
   `user_ids` text NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `project_list`
@@ -61,7 +61,7 @@ CREATE TABLE `system_settings` (
   `contact` varchar(20) NOT NULL,
   `address` text NOT NULL,
   `cover_img` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `system_settings`
@@ -69,6 +69,20 @@ CREATE TABLE `system_settings` (
 
 INSERT INTO `system_settings` (`id`, `name`, `email`, `contact`, `address`, `cover_img`) VALUES
 (1, 'Capstone Project Team Monitoring System', 'info@sample.comm', '+6948 8542 623', 'East Tapinac, Olongapo City, Zambales', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `task`
+--
+
+CREATE TABLE `task` (
+  `id` int(30) NOT NULL,
+  `name` text NOT NULL,
+  `due_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `description` text NOT NULL,
+  `manager_id` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -83,7 +97,7 @@ CREATE TABLE `task_list` (
   `description` text NOT NULL,
   `status` tinyint(4) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `task_list`
@@ -92,7 +106,8 @@ CREATE TABLE `task_list` (
 INSERT INTO `task_list` (`id`, `project_id`, `task`, `description`, `status`, `date_created`) VALUES
 (5, 4, 'Submit your Project Poster', '				Make sure to submit it on time			', 2, '2022-12-06 14:55:39'),
 (6, 4, 'Project AVP', '				I would like to see your AVP presentation of your project this night			', 3, '2022-12-06 14:58:04'),
-(7, 4, 'Review and Debug Errors', '				I saw some issues on your web app that needs to be fixed immediately			', 3, '2022-12-09 20:54:09');
+(7, 4, 'Review and Debug Errors', '				I saw some issues on your web app that needs to be fixed immediately			', 3, '2022-12-09 20:54:09'),
+(8, 6, 'Review and Debug Errorssadasdasd', 'asdsadasdasdassd maababliw nako', 1, '2023-03-23 22:11:09');
 
 -- --------------------------------------------------------
 
@@ -109,18 +124,19 @@ CREATE TABLE `users` (
   `type` tinyint(1) NOT NULL DEFAULT 2 COMMENT '1 = admin, 2 = staff',
   `avatar` text NOT NULL DEFAULT 'no-image-available.png',
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `type`, `avatar`, `date_created`) VALUES
-(1, 'Administrator', '', 'admin@admin.com', '0192023a7bbd73250516f069df18b500', 1, 'no-image-available.png', '2022-11-26 10:57:04'),
-(6, 'Royce', 'Ogot', '201911397@gordoncollege.edu.ph', '58b9c86a0d0a5118f5b74b1835f72cc8', 2, '1670246580_BSIT_OGOT_ROYCE.jpeg', '2022-12-05 21:23:27'),
+(1, 'Project', ' Adviser', 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', 1, 'no-image-available.png', '2022-11-26 10:57:04'),
+(6, 'Royce', 'Ogot', 'royceogot@gmail.com', '31f0c9e8d331a71798bb0c57993d1b22', 2, '1670246580_BSIT_OGOT_ROYCE.jpeg', '2022-12-05 21:23:27'),
 (7, 'Lloyd', 'Mariano', 'lloydmariano@gmail.com', '4bf183ea9cf95d311518e7ed542a9f89', 2, '1670309280_1606978560_avatar.jpg', '2022-12-06 14:48:24'),
 (8, 'Ken Matthew', 'Ammay', 'kenammay@gmail.com', 'b3906075d9ee220bf34c854b453a238b', 2, 'no-image-available.png', '2022-12-10 03:22:27'),
-(9, 'Von', 'Tandoc', 'vontandoc@gmail.com', 'c292c58dc89573a27c7623cf875c5686', 2, 'no-image-available.png', '2022-12-10 03:34:09');
+(9, 'Von', 'Tandoc', 'vontandoc@gmail.com', 'c292c58dc89573a27c7623cf875c5686', 2, 'no-image-available.png', '2022-12-10 03:34:09'),
+(11, 'Dean', ' ', 'dean@gmail.com', 'aabf11b3599bbdf37f8f6020e467fd2d', 3, '1679627100_274611862_1649727918693113_8019331313206992402_n.jpg', '2023-03-24 10:58:18');
 
 -- --------------------------------------------------------
 
@@ -140,7 +156,7 @@ CREATE TABLE `user_productivity` (
   `user_id` int(30) NOT NULL,
   `time_rendered` float NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_productivity`
@@ -206,13 +222,13 @@ ALTER TABLE `system_settings`
 -- AUTO_INCREMENT for table `task_list`
 --
 ALTER TABLE `task_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_productivity`
