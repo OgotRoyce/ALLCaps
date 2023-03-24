@@ -19,49 +19,58 @@ header("location:index.php?page=home");
 
 ?>
 <?php include 'header.php' ?>
-<body class="hold-transition login-page bg-orange">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="#" class="text-white"><b>Welcome to <?php echo $_SESSION['system']['name'] ?></b></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <form action="" id="login-form">
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" required placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" required placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
+<body class="hold-transition login-page" style="background-image: url('https://wallpapercave.com/wp/wp4465180.jpg');">
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <div class="row">
+    <div class="col-md-6 d-flex align-items-center" style="margin-top: 20px;">
+      <img src="assets/uploads/ALL Caps ICON.png" alt="Image" class="img-fluid" style="max-height: 250px;">
     </div>
-    <!-- /.login-card-body -->
+    <div class="col-md-6">
+      <div class="login-box" style="max-width: 600px;">
+        <div class="login-logo">
+          <img src="assets/uploads/ALL Caps WORDMARK.png" alt="Logo" class="img-fluid">
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+          <div class="card-body login-card-body">
+            <form action="" id="login-form">
+              <div class="input-group mb-3">
+                <input type="email" class="form-control bg-light" name="email" required placeholder="Email">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="password" class="form-control bg-light" name="password" required placeholder="Password">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <div class="icheck-primary">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">
+                      Remember Me
+                    </label>
+                  </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary btn-block" style="background-color: #ff6600; border-color: #ff6600;">Sign In</button>
+                </div>
+                <!-- /.col -->
+              </div>
+            </form>
+          </div>
+          <!-- /.login-card-body -->
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <!-- /.login-box -->
@@ -96,4 +105,8 @@ header("location:index.php?page=home");
 <?php include 'footer.php' ?>
 
 </body>
-</html>
+<style>
+.login-box {
+  max-width: 600px;
+}
+</style>

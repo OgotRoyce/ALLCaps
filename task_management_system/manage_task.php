@@ -50,7 +50,7 @@ if(isset($_GET['id'])){
         ]
     })
      })
-    
+
     $('#manage-task').submit(function(e){
     	e.preventDefault()
     	start_load()

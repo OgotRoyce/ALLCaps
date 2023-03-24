@@ -7,7 +7,7 @@
 				<thead>
 					<tr>
 						<th class="text-center">#</th>
-						<th>Project Adviser</th>
+						<th>Project Team Name</th>
 						<th>Project Title</th>
 						<th>Members</th>
 					

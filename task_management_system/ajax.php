@@ -5,6 +5,7 @@ date_default_timezone_set("Asia/Manila");
 $action = $_GET['action'];
 include 'admin_class.php';
 $crud = new Action();
+
 if($action == 'login'){
 	$login = $crud->login();
 	if($login)
@@ -25,7 +26,6 @@ if($action == 'logout2'){
 	if($logout)
 		echo $logout;
 }
-
 if($action == 'signup'){
 	$save = $crud->signup();
 	if($save)
@@ -61,25 +61,13 @@ if($action == 'save_task'){
 	if($save)
 		echo $save;
 }
+if($action == 'edit_task'){
+	$save = $crud->edit_task();
+	if($save)
+		echo $save;
+}
 if($action == 'delete_task'){
 	$save = $crud->delete_task();
 	if($save)
 		echo $save;
 }
-if($action == 'save_progress'){
-	$save = $crud->save_progress();
-	if($save)
-		echo $save;
-}
-if($action == 'delete_progress'){
-	$save = $crud->delete_progress();
-	if($save)
-		echo $save;
-}
-if($action == 'get_report'){
-	$get = $crud->get_report();
-	if($get)
-		echo $get;
-}
-ob_end_flush();
-?>

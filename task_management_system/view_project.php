@@ -65,7 +65,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 								</dd>
 							</dl>
 							<dl>
-								<dt><b class="border-bottom border-primary">Project Adviser</b></dt>
+								<dt><b class="border-bottom border-primary">Team Member/s</b></dt>
 								<dd>
 									<?php if(isset($manager['id'])) : ?>
 									<div class="d-flex align-items-center mt-1">
@@ -189,7 +189,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header">
@@ -231,7 +231,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
                       				<span>End: <b><?php echo date('h:i A',strtotime($row['date'].' '.$row['end_time'])) ?></b></span>
 	                        	</span>
 
-	                        	
+	                        	 -->
 
 		                      </div>
 		                      <!-- /.user-block -->
